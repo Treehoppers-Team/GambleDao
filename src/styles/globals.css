@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* background css for app*/
+
+video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.appContainer {
+  position: relative;
+}
+
+.bgContainer {
+  width: 100%;
+  height: 100%;
+}
+
+/* Nav bar css below */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px; /* Adjust padding as needed */
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+.navbarLogoLeft {
+  width: 150px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 4.5vh;
+  margin-left: 1vh;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbarLeft {
+  width: 80px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease-in-out;
+  font-weight: bold;
+  color: #030000;
+}
+
+.navbarLogoRight {
+  width: 80px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbarLeft:hover,
+.navbarLogoLeft:hover,
+.navbarLogoRight:hover {
+  transform: scale(1.1); /* Grow by 10% on hover */
+}
+
+.navbarSpacer {
+  flex: 1; /* Takes up available space between logos */
+}
+
+.connectWallet {
+  background-color: #008037; /* Mustard yellow fill */
+  color: #ffffff; /* Black text color */
+  margin-right: 10px;
+  border: 2px solid #000000; /* Dark black border */
+  border-radius: 10px; /* Adjust the border-radius for roundness */
+  /* Additional styles for padding, font size, etc. */
+  padding: 10px;
+  font-weight: bold; /* Make the font bold */
+  font-size: 15px;
+  transition: all 0.3s ease; /* Add smooth transition for hover effect */
+}
+
+.connectWallet:hover {
+  transform: scale(1.1); /* Grow by 10% on hover */
+  box-shadow: 0 0 10px #7ED957; /* Shadow with helix of colors */
+}
+
+.disconnectWallet {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.disconnectPopup {
+  position: absolute;
+  top: 90%; /* Set it to appear below the connected button */
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.disconnectPopup button {
+  width: 100%;
+  background-color: #008037; /* Mustard yellow fill */
+  color: #ffffff; /* Black text color */
+  border: 2px solid #000000; /* Dark black border */
+  border-radius: 10px; /* Adjust the border-radius for roundness */
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Add smooth transition for hover effect */
+}
+
+.disconnectPopup button:hover {
+  transform: scale(1.1); /* Grow by 10% on hover */
+  box-shadow: 0 0 10px #7ED957; /* Shadow with helix of colors */
+  background-color: #7ED957; /* Darker yellow on hover */
+}
+
+/*Stake screen*/
+
+.container {
+  position: absolute;
+  width: 77%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.staking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.staking-box {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  /* z-index: 1000; */
+  background-color: #ffffff; /* Grey background with 0.8 opacity */
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 10px;
+  padding-bottom: 2vh; /* the difference in height at the bottom of the formatted balance 25 % of the screen */
+  padding-inline: 30px; /* left and right */
+  /* margin-bottom: 20px; */
+  text-align: center;
+}
+
+.staking-titles {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15vh;
+}
+
+.staking-title {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;/* difference in height between "WeToken Balance" and "formattedBalance" be half of the screen*/
+  font-weight: bold;
+}
+
+.staking-title.active {
+  /* font-weight: bold; */
+  text-decoration: underline; /* Underline the active title */
+}
+
+.staking-value {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 15vh;
+}
+
+/* .button-container {
+  display: flex;
+  gap: 50px; Adjust the gap between buttons as needed
+  position: fixed;
+  bottom: 4vh; Adjust the percentage of the screen height
+} */
+
+.stakingButton {
+  background-color: #008037; /* Mustard yellow fill */
+  color: #ffffff; /* Black text color */
+  border: 2px solid #000000; /* Dark black border */
+  border-radius: 10px; /* Adjust the border-radius for roundness */
+  padding: 10px;
+  font-size: 22px;
+  margin-bottom: 0%;
+  transition: all 0.3s ease; /* Add smooth transition for hover effect */
+  bottom: 1vh;
+}
+
+.stakingButton:hover {
+  transform: scale(1.1); /* Grow by 10% on hover */
+  box-shadow: 0 0 10px #7ED957; /* Shadow with helix of colors */
+}
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
