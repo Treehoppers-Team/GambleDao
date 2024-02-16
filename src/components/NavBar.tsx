@@ -283,14 +283,20 @@ const NavBar = () => {
   const brokerContractAddress = "0x3ed337454c122F77FE139454178911453E4e9CC4";
 
   // Getting common state variables from wallet context
-  const { walletAddress, setWalletAddress, brokerContract, setBrokerContract } =
-    useWallet();
+  const {
+    walletAddress,
+    setWalletAddress,
+    brokerContract,
+    setBrokerContract,
+    setEthDeposited,
+  } = useWallet();
 
   // const [provider, setProvider] = useState<any>();
   // const customProvider = new ethers.JsonRpcProvider(
   //   "https://alien-floral-bridge.blast-sepolia.quiknode.pro/b9928ea9dfe1cf85d7fb3127d10384f95556ecf3/"
   // );
 
+  // ConnectWallet function
   const connectWallet = async () => {
     if (typeof window.ethereum !== "undefined") {
       const [account] = await window.ethereum.request({
@@ -331,6 +337,7 @@ const NavBar = () => {
     setWalletAddress(null);
     // setProvider(null);
     console.log("disconnected");
+    setEthDeposited("");
     // setHomeState(true);
     // setSelectedWeather(null); // so that the current weather will not be selected
   };

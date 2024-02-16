@@ -80,7 +80,7 @@ video {
 
 .connectWallet:hover {
   transform: scale(1.1); /* Grow by 10% on hover */
-  box-shadow: 0 0 10px #7ED957; /* Shadow with helix of colors */
+  box-shadow: 0 0 10px #7ed957; /* Shadow with helix of colors */
 }
 
 .disconnectWallet {
@@ -115,8 +115,8 @@ video {
 
 .disconnectPopup button:hover {
   transform: scale(1.1); /* Grow by 10% on hover */
-  box-shadow: 0 0 10px #7ED957; /* Shadow with helix of colors */
-  background-color: #7ED957; /* Darker yellow on hover */
+  box-shadow: 0 0 10px #7ed957; /* Shadow with helix of colors */
+  background-color: #7ed957; /* Darker yellow on hover */
 }
 
 /*Stake screen*/
@@ -159,13 +159,13 @@ video {
 .staking-titles {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15vh;
+  margin-bottom: 3vh;
 }
 
 .staking-title {
   font-size: 40px;
   color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;/* difference in height between "WeToken Balance" and "formattedBalance" be half of the screen*/
+  cursor: pointer; /* difference in height between "WeToken Balance" and "formattedBalance" be half of the screen*/
   font-weight: bold;
 }
 
@@ -174,10 +174,31 @@ video {
   text-decoration: underline; /* Underline the active title */
 }
 
-.staking-value {
+/* .staking-value {
   font-size: 30px;
   color: rgba(0, 0, 0, 0.8);
   margin-bottom: 15vh;
+} */
+
+.stake-values {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.stake-value {
+  font-size: 22px;
+}
+
+.stake-input-container {
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  margin-bottom: 2vh;
+}
+
+.stake-input {
+  flex: 1;
+  margin-right: 10px;
 }
 
 /* .button-container {
@@ -201,7 +222,14 @@ video {
 
 .stakingButton:hover {
   transform: scale(1.1); /* Grow by 10% on hover */
-  box-shadow: 0 0 10px #7ED957; /* Shadow with helix of colors */
+  box-shadow: 0 0 10px #7ed957; /* Shadow with helix of colors */
+}
+
+.balance-value {
+  font-size: 30px;
+  color: #000000;
+  margin-top: 65px;
+  margin-bottom: 73px;
 }
 /* :root {
   --foreground-rgb: 0, 0, 0;

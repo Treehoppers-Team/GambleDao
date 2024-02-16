@@ -12,6 +12,8 @@ interface WalletContextValue {
   setWalletAddress: React.Dispatch<React.SetStateAction<string | null>>;
   brokerContract: any;
   setBrokerContract: React.Dispatch<React.SetStateAction<any>>;
+  ethDeposited: any;
+  setEthDeposited: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const WalletContext = createContext<WalletContextValue | undefined>(
@@ -21,12 +23,15 @@ export const WalletContext = createContext<WalletContextValue | undefined>(
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [brokerContract, setBrokerContract] = useState<any>(null);
+  const [ethDeposited, setEthDeposited] = useState<any>(null);
 
   const value: WalletContextValue = {
     walletAddress,
     setWalletAddress,
     brokerContract,
     setBrokerContract,
+    ethDeposited,
+    setEthDeposited,
   };
 
   return (
