@@ -4,6 +4,12 @@ import Link from "next/link";
 const ethers = require("ethers");
 import { useWallet } from "@/context/WalletContext";
 
+declare global {
+  interface Window {
+    ethereum?: any; // Adjust the type as necessary
+  }
+}
+
 const NavBar = () => {
   // broker variables
   const brokerAbi = [
