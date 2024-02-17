@@ -2,7 +2,7 @@ import React from "react";
 
 const Play = () => {
   const handlePlayNowClick = () => {
-    window.open("https://weatherdao.vercel.app/", "_blank");
+    window.open("https://weather-quest.vercel.app/", "_blank");
   };
 
   return (
