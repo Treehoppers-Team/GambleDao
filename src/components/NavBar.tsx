@@ -286,9 +286,10 @@ const NavBar = () => {
   const {
     walletAddress,
     setWalletAddress,
-    brokerContract,
     setBrokerContract,
     setEthDeposited,
+    setEthBalance,
+    setBlockNumber,
   } = useWallet();
 
   // const [provider, setProvider] = useState<any>();
@@ -330,7 +331,16 @@ const NavBar = () => {
     // setTokenContract(
     //   new ethers.Contract(tokenContractAddress, tokenAbi, signer)
     // );
-    console.log("Account:", await signer.getAddress());
+    const address = await signer.getAddress();
+    console.log("Account:", address);
+
+    const ethBalance = await provider.getBalance(address);
+    console.log(ethBalance, typeof parseInt(ethBalance));
+    setEthBalance(ethBalance);
+
+    const blockNumber = await provider.getBlockNumber();
+    console.log(blockNumber, typeof blockNumber);
+    setBlockNumber(blockNumber);
   };
 
   const disConnectWallet = async () => {
@@ -338,6 +348,7 @@ const NavBar = () => {
     // setProvider(null);
     console.log("disconnected");
     setEthDeposited("");
+    setEthBalance(0);
     // setHomeState(true);
     // setSelectedWeather(null); // so that the current weather will not be selected
   };

@@ -121,23 +121,26 @@ video {
 
 /*Stake screen*/
 
-.container {
-  position: absolute;
-  width: 77%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+.title {
+  position: fixed; /* Position the title relative to the viewport */
+  top: 12vh;
+  left: 50%; /* Center the title horizontally */
+  transform: translateX(-50%); /* Center the title horizontally */
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8); /* Set the font color */
+  z-index: 1000; /* Ensure the title is above other elements */
+  text-align: center; /* Center-align the text */
+}
+
+.greenTinge {
+  color: #008037; /* Green color for the word "composability" */
 }
 
 .staking-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start; /* Align items at the top */
 }
 
 .staking-box {
@@ -174,12 +177,6 @@ video {
   text-decoration: underline; /* Underline the active title */
 }
 
-/* .staking-value {
-  font-size: 30px;
-  color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 15vh;
-} */
-
 .stake-values {
   display: flex;
   justify-content: space-between;
@@ -215,6 +212,7 @@ video {
   border-radius: 10px; /* Adjust the border-radius for roundness */
   padding: 10px;
   font-size: 22px;
+  font-weight: bold;
   margin-bottom: 0%;
   transition: all 0.3s ease; /* Add smooth transition for hover effect */
   bottom: 1vh;
@@ -231,32 +229,85 @@ video {
   margin-top: 65px;
   margin-bottom: 73px;
 }
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Define media queries for different screen sizes */
+@media (max-width: 768px) {
+  .title {
+    top: 14vh; 
+    font-size: 20px; /* Adjust the font size for smaller screens */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (min-width: 769px) and (max-width: 1024px) {
+  .title {
+    top: 12vh; 
+    font-size: 25px; /* Adjust the font size for medium-sized screens */
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .title {
+    top: 15vh; 
+    /* top: 15%; Adjust the top position for larger screens */
+    font-size: 25px; /* Adjust the font size for larger screens */
   }
-} */
+}
+
+/* Media queries for screen sizes between 1300px to 1500px */
+@media (min-width: 1300px) and (max-width: 1400px) {
+  .title {
+    font-size: 30px; /* Adjust the font size for larger screens */
+  }
+}
+
+@media (min-width: 1401px) and (max-width: 1800px){
+  .title {
+    /* top: 13%; Adjust the top position for larger screens */
+    font-size: 35px; /* Adjust the font size for larger screens */
+  }
+}
+
+@media (min-width: 1800px) {
+  .title {
+    font-size: 45px; /* Adjust the font size for larger screens */
+  }
+}
+
+/* Play Screen */
+
+.container {
+  position: absolute;
+  width: 77%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.normalButton {
+  position: fixed;
+  bottom: 4vh; /* Adjust the percentage of the screen height */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  /* margin-top: 200px; Adjust the distance as needed */
+  /* transform: translate(0%,400%); /*This moves it along the x and y axis, 1200 means that we move it down by 1200% or 12 times its height*/
+  background-color: #008037; /* Mustard yellow fill */
+  color: white; /* Black text color */
+  border: 2px solid #000000; /* Dark black border */
+  border-radius: 10px; /* Adjust the border-radius for roundness */
+  /* Additional styles for padding, font size, etc. */
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Add smooth transition for hover effect */
+}
+
+.normalButton:hover {
+  transform: translateX(-50%) scale(1.1); /* Grow by 10% on hover */
+  box-shadow: 0 0 10px #7ed957; /* Shadow with helix of colors */
+  background-color: #7ed957; /* Darker yellow on hover */
+}
