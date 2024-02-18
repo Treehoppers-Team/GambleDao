@@ -383,6 +383,9 @@ const NavBar = () => {
           disConnectWallet={disConnectWallet}
         />
       )}
+      <a href="https://twitter.com/treehoppersxyz">
+        <img src="./X.png" alt="Close" className="navbarLogoRight" />
+      </a>
     </div>
   );
 };

@@ -87,28 +87,36 @@ const Home = () => {
       );
       const cleanedIDs = cleanIDs(depositorIDs);
       console.log(cleanedIDs);
-      const totalBalance = await getTotalETHBalance(cleanedIDs);
-      const cleanedBalance = totalBalance / 10 ** 18;
-      console.log(cleanedBalance);
-      setEthDeposited(cleanedBalance);
+      if (cleanedIDs.length == 0) {
+        setEthDeposited("0");
+      } else {
+        const totalBalance = await getTotalETHBalance(cleanedIDs);
+        const cleanedBalance = totalBalance / 10 ** 18;
+        console.log(cleanedBalance);
+        setEthDeposited(cleanedBalance);
+      }
     }
   };
 
   const retrieveInfo = async () => {
     if (walletAddress) {
-      try {
-        const releaseBlock = await brokerContract.releaseBlock();
-        console.log(`release block is ${releaseBlock}`);
-        if (blockNumber < parseInt(releaseBlock)) {
-          alert(`Deposit has not yet matured`);
-        } else {
-          // function to claim yield and eth
+      if (ethDeposited == "0") {
+        alert("Your currently have zero ETH deposited, please stake ETH");
+      } else {
+        try {
+          const releaseBlock = await brokerContract.releaseBlock();
+          console.log(`release block is ${releaseBlock}`);
+          if (blockNumber < parseInt(releaseBlock)) {
+            alert(`Deposit has not yet matured`);
+          } else {
+            // function to claim yield and eth
+          }
+        } catch (e) {
+          console.log(e);
+          alert(
+            `an expected error occured, user may have terminated the transaction`
+          );
         }
-      } catch (e) {
-        console.log(e);
-        alert(
-          `an expected error occured, user may have terminated the transaction`
-        );
       }
     } else {
       alert(`Wallet is not connected, please connect wallet`);
@@ -181,7 +189,7 @@ const Home = () => {
             <>
               {ethDeposited ? (
                 <div className="stake-input-container">
-                  <h1 className="balance-value">ETH {ethDeposited}</h1>
+                  <h1 className="balance-value">{ethDeposited} ETH</h1>
                 </div>
               ) : walletAddress ? (
                 <div className="stake-input-container">
